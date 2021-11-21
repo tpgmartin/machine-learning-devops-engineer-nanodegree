@@ -1,3 +1,7 @@
+'''
+This script contains tests for functions defined in `churn_library`
+'''
+
 import os
 import logging
 import churn_library as cls
@@ -125,13 +129,13 @@ def test_train_models(train_models, X_train, X_test, y_train, y_test):
 
 if __name__ == '__main__':
 
-    df = test_import(cls.import_data)
+    data = test_import(cls.import_data)
 
-    test_eda(cls.perform_eda, df)
+    test_eda(cls.perform_eda, data)
 
-    df = test_encoder_helper(cls.encoder_helper, df)
+    data = test_encoder_helper(cls.encoder_helper, data)
 
     X_train, X_test, y_train, y_test = test_perform_feature_engineering(
-        cls.perform_feature_engineering, df)
+        cls.perform_feature_engineering, data)
 
     test_train_models(cls.train_models, X_train, X_test, y_train, y_test)

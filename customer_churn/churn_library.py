@@ -87,8 +87,6 @@ def encoder_helper(df, category_lst, response):
     output:
             df: pandas dataframe with new columns for
     '''
-    pass
-
     for category in category_lst:
         groups = df.groupby(category).mean()[response]
 
@@ -248,8 +246,6 @@ def train_models(X_train, X_test, y_train, y_test):
     output:
               None
     '''
-    pass
-
     # grid search
     rfc = RandomForestClassifier(random_state=42)
     # AttributeError: 'str' object has no attribute 'decode'
@@ -291,8 +287,8 @@ def train_models(X_train, X_test, y_train, y_test):
     lrc_plot = plot_roc_curve(lrc, X_test, y_test)
     plt.figure(figsize=(15, 8))
     ax = plt.gca()
-    rfc_disp = plot_roc_curve(cv_rfc.best_estimator_,
-                              X_test, y_test, ax=ax, alpha=0.8)
+    plot_roc_curve(cv_rfc.best_estimator_,
+                    X_test, y_test, ax=ax, alpha=0.8)
     lrc_plot.plot(ax=ax, alpha=0.8)
     plt.savefig('./images/results/roc_curve.png')
     plt.close()
