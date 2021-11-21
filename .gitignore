@@ -4,7 +4,11 @@ __pycache__
 
 *_venv/
 
-data
-images
-logs
-models
+customer_churn/data/*
+!customer_churn/data/.gitignore
+customer_churn/images/*
+!customer_churn/images/.gitignore
+customer_churn/logs/*
+!customer_churn/logs/.gitignore
+customer_churn/models/*
+!customer_churn/models/.gitignore
