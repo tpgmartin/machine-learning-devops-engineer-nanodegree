@@ -4,9 +4,10 @@ import churn_library as cls
 
 logging.basicConfig(
     filename='./logs/churn_library.log',
-    level = logging.INFO,
+    level=logging.INFO,
     filemode='w',
     format='%(name)s - %(levelname)s - %(message)s')
+
 
 def test_import(import_data):
     '''
@@ -23,10 +24,12 @@ def test_import(import_data):
         assert df.shape[0] > 0
         assert df.shape[1] > 0
     except AssertionError as err:
-        logging.error('Testing import_data: The file doesn\'t appear to have rows and columns')
+        logging.error(
+            'Testing import_data: The file doesn\'t appear to have rows and columns')
         raise err
 
     return df
+
 
 def test_eda(perform_eda, df):
     '''
@@ -77,7 +80,7 @@ def test_perform_feature_engineering(perform_feature_engineering, df):
     '''
     test perform_feature_engineering
     '''
-    X_train, X_test, y_train, y_test  = perform_feature_engineering(df, 'Churn')
+    X_train, X_test, y_train, y_test = perform_feature_engineering(df, 'Churn')
 
     try:
         assert X_train.shape[0] > 0
@@ -93,6 +96,7 @@ def test_perform_feature_engineering(perform_feature_engineering, df):
         return err
 
     return X_train, X_test, y_train, y_test
+
 
 def test_train_models(train_models, X_train, X_test, y_train, y_test):
     '''
