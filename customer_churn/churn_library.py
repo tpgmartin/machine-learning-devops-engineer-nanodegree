@@ -288,7 +288,7 @@ def train_models(X_train, X_test, y_train, y_test):
     plt.figure(figsize=(15, 8))
     ax = plt.gca()
     plot_roc_curve(cv_rfc.best_estimator_,
-                    X_test, y_test, ax=ax, alpha=0.8)
+                   X_test, y_test, ax=ax, alpha=0.8)
     lrc_plot.plot(ax=ax, alpha=0.8)
     plt.savefig('./images/results/roc_curve.png')
     plt.close()
